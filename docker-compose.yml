@@ -1,0 +1,20 @@
+---
+version: '2'
+services:
+  pythonapp:
+    build: .
+    ports:
+    - "3000:3000"
+    - "8000:8000"
+    volumes:
+      - /home/user/develop/bottleapp:/home/appuser/bottleapp
+    tty: True
+  postgres:
+    image: postgres:11.6
+    container_name: postgres-test
+    ports:
+    - "5432:5432"
+    environment:
+    - POSTGRES_PASSWORD=h4ck4d3my
+
+
